@@ -1,0 +1,45 @@
+.create-comment {
+  width: 100%;
+}
+
+.create-comment__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-comment__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.create-comment__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.create-comment__input {
+  border: 1px solid #cbd5f5;
+  background: #ffffff;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.create-comment__input:focus {
+  border-color: #0f172a;
+}
+
+.create-comment__button {
+  border: 1px solid #0f172a;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}

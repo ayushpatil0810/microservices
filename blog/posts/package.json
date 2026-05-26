@@ -1,0 +1,25 @@
+{
+  "name": "posts",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run --watch index.ts",
+    "start": "bun run index.ts",
+    "build": "bun build index.ts --outdir dist"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.4",
+    "@types/bun": "latest",
+    "@types/express": "^5.0.6"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.19",
+    "axios": "^1.16.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}

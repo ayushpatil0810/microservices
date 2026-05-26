@@ -1,0 +1,23 @@
+{
+  "name": "event-bus",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/axios": "^0.14.4",
+    "@types/bun": "latest",
+    "@types/express": "^5.0.6"
+  },
+    "scripts": {
+    "dev": "bun run --watch index.ts",
+    "start": "bun run index.ts",
+    "build": "bun build index.ts --outdir dist"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "axios": "^1.16.1",
+    "express": "^5.2.1"
+  }
+}
