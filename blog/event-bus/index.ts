@@ -4,8 +4,11 @@ import axios from "axios";
 const app = express();
 app.use(express.json());
 
+const events: any[] = [];
+
 app.post("/events", async (req, res) => {
   const event = req.body;
+  events.push(event);
 
   axios.post("http://localhost:4000/events", event).catch((err) => {
     console.error("Error broadcasting event to service 1:", err.message);
@@ -24,6 +27,10 @@ app.post("/events", async (req, res) => {
   });
 
   res.status(200).send({ status: "Event broadcasted" });
+});
+
+app.get("/events", (req, res) => {
+  res.status(200).send(events);
 });
 
 app.listen(4005, () => {
