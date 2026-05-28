@@ -9,9 +9,9 @@
     "@types/express": "^5.0.6"
   },
     "scripts": {
-    "dev": "bun run --watch index.ts",
-    "start": "bun run index.ts",
-    "build": "bun build index.ts --outdir dist"
+    "dev": "node --watch index.ts",
+    "start": "node index.ts",
+    "build": "tsc --outdir dist"
   },
   "peerDependencies": {
     "typescript": "^5"
