@@ -1,0 +1,22 @@
+{
+  "name": "moderation",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run --watch index.ts",
+    "start": "bun run index.ts",
+    "build": "bun build index.ts --outdir dist"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/express": "^5.0.6"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "axios": "^1.16.1",
+    "express": "^5.2.1"
+  }
+}

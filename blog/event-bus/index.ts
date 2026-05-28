@@ -19,6 +19,10 @@ app.post("/events", async (req, res) => {
     console.error("Error broadcasting event to service 3:", err.message);
   });
 
+  axios.post("http://localhost:4003/events", event).catch((err) => {
+    console.error("Error broadcasting event to service 4:", err.message);
+  });
+
   res.status(200).send({ status: "Event broadcasted" });
 });
 
