@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: posts-deployment
+spec:
+  replicas: 1
+  # The Deployment needs a way to know which Pods it manages.
+  selector:
+    # "Manage all Pods that have the label app=posts."
+    matchLabels:
+      # jhhfguyegbfy: posts => this is also valid
+      app: posts
+  # This is the blueprint used to create Pods.
+  # Whenever I need a new Pod, create it using this template.
+  template:
+    metadata:
+      # Every Pod created by this Deployment gets the label app=posts.
+      # it matches the selector above, so the Deployment knows that it manages these Pods.
+      labels:
+        app: posts
+    spec:
+      containers:
+        - name: posts
+          image: blog/posts:latest # this is the image that we want to run in our pod
