@@ -21,4 +21,4 @@ spec:
     spec:
       containers:
         - name: posts
-          image: blog/posts:latest # this is the image that we want to run in our pod
+          image: ayushpatil0810/posts:latest # this is the image that we want to run in our pod
