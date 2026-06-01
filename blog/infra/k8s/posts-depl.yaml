@@ -22,3 +22,35 @@ spec:
       containers:
         - name: posts
           image: ayushpatil0810/posts:latest # this is the image that we want to run in our pod
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-bus-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: event-bus
+  template:
+    metadata:
+      labels:
+        app: event-bus
+    spec:
+      containers:
+        - name: event-bus
+          image: ayushpatil0810/event-bus:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: posts-clusterip-service
+spec:
+  type: ClusterIP # this is the default type of service, we can also remove this line
+  selector:
+    app: posts
+  ports:
+    - name: posts
+      protocol: TCP
+      port: 4001
+      targetPort: 4001

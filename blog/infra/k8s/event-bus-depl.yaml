@@ -15,3 +15,17 @@ spec:
       containers:
         - name: event-bus
           image: ayushpatil0810/event-bus:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: event-bus-service
+spec:
+  type: ClusterIP # this is the default type of service, we can also remove this line
+  selector:
+    app: event-bus
+  ports:
+    - name: event-bus
+      protocol: TCP
+      port: 4005
+      targetPort: 4005
