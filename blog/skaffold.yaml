@@ -1,0 +1,52 @@
+apiVersion: skaffold/v2beta26
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+    - image: ayushpatil0810/client
+      context: ./client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+          - src: "src/**/*.tsx"
+            dest: .
+    - image: ayushpatil0810/comments
+      context: ./comments
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: "*.ts"
+    - image: ayushpatil0810/event-bus
+      context: ./event-bus
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: "*.ts"
+    - image: ayushpatil0810/moderation
+      context: ./moderation
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: "*.ts"
+    - image: ayushpatil0810/query
+      context: ./query
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: "*.ts"
